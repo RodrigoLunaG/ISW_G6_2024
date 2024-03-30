@@ -21,4 +21,5 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Alumno | Legajo|
 |---|---|
 |Rodrigo Luna | 68669|
-
+|---|---|
+|Maximiliano Abila | 89668|
