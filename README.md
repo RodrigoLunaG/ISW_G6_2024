@@ -23,3 +23,4 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Rodrigo Luna | 68669|
 |Maximiliano Abila | 89668|
 |Emiliano Romero | 81631|
+|Crescente Gerónimo | 89433|
