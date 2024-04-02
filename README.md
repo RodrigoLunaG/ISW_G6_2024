@@ -31,4 +31,6 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Gerónimo Crescente | 89433|
 |Luca Spaccesi | 91792|
 |Enzo Campana | 90436|
-|Reyna Juan | 89336|
+|Juan Reyna | 89336|
+|Franco Sosa | 90308|
+
