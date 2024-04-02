@@ -2,7 +2,7 @@
 
 ## Items de configuración referidos a material teórico
 
-### **Apuntes de clases**
+### <span style="color: green">Apuntes de clases </span>
 
 #### Regla de nombrado
 `[subtema]_[tema]_[fecha].[extensión]`
@@ -20,7 +20,7 @@
 
 ___
 
-### **Presentaciones**
+### <span style="color: green">Presentaciones </span>
 
 #### Regla de nombrado
 `[tema]_[unidad][número de unidad].[extensión]`
@@ -33,7 +33,7 @@ ___
 
 ___
 
-### **Imagenes de clases**
+### <span style="color: green">Imagenes de clases </span>
 
 #### Regla de nombrado
 `[subtema]_[número de imagen]_[tema]_[fecha].[extensión]`
@@ -46,7 +46,7 @@ ___
 
 ___
 
-### **Bibliografía**
+### <span style="color: green">Bibliografía </span>
 
 #### Regla de nombrado
 `[unidad][número de unidad]_[titulo]_[autor].[extensión]`
@@ -59,7 +59,7 @@ ___
 
 ## Items de configuración referidos a trabajo practicos
 
-### **Listado de requerimientos**
+### <span style="color: green">Listado de requerimientos </span>
 
 #### Regla de nombrado
 `[TP[número de TP]_Requerimientos.[extensión]`
@@ -72,7 +72,7 @@ ___
 
 ___
 
-### **Listado de casos de uso**
+### <span style="color: green">Listado de casos de uso </span>
 
 #### Regla de nombrado
 `TP[número de TP]_CasosDeUso.[extensión]`
@@ -85,7 +85,7 @@ ___
 
 ___
 
-### **Listado de casos de uso**
+### <span style="color: green">Listado de casos de uso </span>
 
 #### Regla de nombrado
 `TP[número de TP]_CasosDeUso.[extensión]`
@@ -98,7 +98,7 @@ ___
 
 ___
 
-### **Código Fuente**
+### <span style="color: green">Código Fuente </span>
 
 #### Regla de nombrado
 `TP[número de TP]_[Nombre de proyecto]`
@@ -108,7 +108,7 @@ ___
 
 ___
 
-### **Diagramas**
+### <span style="color: green">Diagramas </span>
 
 #### Regla de nombrado
 `TP[número de TP]_Diagrama.[extensión]`
