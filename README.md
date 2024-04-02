@@ -24,8 +24,11 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 
 ## [Glosario](glosario.md)
 
-## Criterio de línea base
-Se define una nueva linea base por cada tema presentado en clases y sus respectivas actividades completadas.
+## Criterio de línea base inicial
+Se define la línea base inicial con un listado de los items de configuración, el glosario y la estructura del repositorio.
+
+## Criterio de línea base general
+Se define una nueva línea base por cada tema presentado en clases y sus respectivas actividades completadas.
 
 ## Integrates
 |Alumno | Legajo|
