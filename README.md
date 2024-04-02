@@ -20,7 +20,7 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 - Minutas
 - Etc.
 
-## [Estructura de repositorio](itemsDeConfiguracion.md)
+## [Items de configuración](itemsDeConfiguracion.md)
 
 ## Integrates
 |Alumno | Legajo|
@@ -30,3 +30,5 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Emiliano Romero | 81631|
 |Gerónimo Crescente | 89433|
 |Luca Spaccesi | 91792|
+|Enzo Campana | 90436|
+|Reyna Juan | 89336|
