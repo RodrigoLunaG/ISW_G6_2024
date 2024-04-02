@@ -20,19 +20,7 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 - Minutas
 - Etc.
 
-## Regla de nombrado
-- Carpetas por unidad [unidad][numero de unidad]\_[tema]
-- Archivos de apuntes de clases: [subtema]\_[tema]\_[fecha].[extensión]. 
-<br> Ej.:actividades_scm_20240326.txt
-- Formato de fecha propuesta:
-  - `YYYYMMDD` Identifica año, mes y día.
-  - `YYYYMM` Identifica año y mes.
-  - `YYYY` Identifica año.
-
-## Extensiones admitidas
-- txt
-- jpg
-- pdf
+## [Estructura de repositorio](itemsDeConfiguracion.md)
 
 ## Integrates
 |Alumno | Legajo|
