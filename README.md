@@ -32,5 +32,5 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Luca Spaccesi | 91792|
 |Enzo Campana | 90436|
 |Juan Reyna | 89336|
-|Fraco Sosa | 90308|
+|Franco Sosa | 90308|
 
