@@ -22,6 +22,8 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 
 ## [Items de configuración](itemsDeConfiguracion.md)
 
+## [Glosario](glosario.md)
+
 ## Integrates
 |Alumno | Legajo|
 |---|---|
