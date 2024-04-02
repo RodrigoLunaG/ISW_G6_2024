@@ -24,6 +24,9 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 
 ## [Glosario](glosario.md)
 
+## Criterio de línea base
+Se define una nueva linea base por cada tema presentado en clases y sus respectivas actividades completadas.
+
 ## Integrates
 |Alumno | Legajo|
 |---|---|
@@ -36,5 +39,3 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Juan Reyna | 89336|
 |Franco Sosa | 90308|
 
-## Criterio de línea base
-Se define una nueva linea base por cada tema presentado en clases y sus respectivas actividades completadas.
