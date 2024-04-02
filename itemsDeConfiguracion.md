@@ -62,13 +62,13 @@ ___
 ### <span style="color: green">Listado de requerimientos </span>
 
 #### Regla de nombrado
-`[TP[número de TP]_Requerimientos.[extensión]`
+`TP[número de TP]_Requerimientos.[extensión]`
 
 #### Extensiones admitidas
 `.txt`
 
 #### Ubicación
-`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP_Analisis`
+`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP[número de TP]_Analisis`
 
 ___
 
@@ -81,20 +81,7 @@ ___
 `.txt`
 
 #### Ubicación
-`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP_Análisis`
-
-___
-
-### <span style="color: green">Listado de casos de uso </span>
-
-#### Regla de nombrado
-`TP[número de TP]_CasosDeUso.[extensión]`
-
-#### Extensiones admitidas
-`.txt`
-
-#### Ubicación
-`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP_Análisis`
+`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP[número de TP]_Análisis`
 
 ___
 
@@ -111,10 +98,10 @@ ___
 ### <span style="color: green">Diagramas </span>
 
 #### Regla de nombrado
-`TP[número de TP]_Diagrama.[extensión]`
+`TP[número de TP]_[Tipo de Diagrama].[extensión]`
 
 #### Extensiones admitidas
 `.mdj`
 
 #### Ubicación
-`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP_Análisis`
+`/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP[número de TP]_[Etapa correspondiente al ciclo de vida del sw]`
