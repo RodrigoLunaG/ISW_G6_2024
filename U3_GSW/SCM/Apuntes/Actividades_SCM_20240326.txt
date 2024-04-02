@@ -1,4 +1,4 @@
-	Tarea DISEÑAR ESTRUCTURA SCM
+Práctico número 4:
 1)Definir la estructura del repositorio
 2)Realizar un listado de los items de configuracion
 3)Definir Glosario
