@@ -42,3 +42,4 @@ Repository for version control of configuration items from the "Ingeniería y Ca
 |Emiliano Romero | 81631|
 |Gerónimo Crescente | 89433|
 |Luca Spaccesi | 91792|
+|Enzo Campana | 90436|
