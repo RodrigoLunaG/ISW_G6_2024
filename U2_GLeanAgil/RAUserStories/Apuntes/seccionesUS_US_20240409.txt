@@ -1,0 +1,46 @@
+US
+
+Frente
+------
+
+Card
+Confirmación
+Conversación
+
+
+Frase verbal_: nombre que comienza con verbo en infinito para dar una idea gral de lo que tiene la jira card
+ej.: Vender
+------
+
+Como rol to quería act para valor de negocio
+
+
+Criterios de aceptación: limites, que se necesita
+	Debe (obligatorio) y Puede (opcional) son palabras que se usan para los criterios de aceptación
+	ej. El cliente debe tener mayor a 18 años.
+	El cliente puede completar campo
+
+
+
+Dorso
+------
+
+Pruebas de usuario: se asume que ya paso el testing y no hay errores para hacer estas preubas.
+El PO se encarga de ejecutar las pruebas para validar si les sirve al usuario o no
+
+Tienen el formato
+Probar+<frase verbal>+<escenario a probar> -> se clasifican como FALLA o PASA
+EJ.:
+- Probar vender a un menor de 18 -> FALLA = significa que el sw debe decir que esa actividad no se puede hacer
+- Probar vender a un mayor de 18 -> PASA
+Pueden ser complementarios a los criterios de aceptación
+
+Se buscan probar los casos mas representativos cosas menores corresponden al testing
+
+Es correcto tener pruebas que fallen y otras que pasen
+
+Si existe  un criterio de aceptación si o si se debería de poder probar
+
+
+
+No siempre el PO no es cliente(el que paga), puede que se mande alguien propio
