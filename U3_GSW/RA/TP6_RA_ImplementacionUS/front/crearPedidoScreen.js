@@ -42,8 +42,7 @@ const CrearPedidoScreen = () => {
   };
 
   const handleSubmit = () => {
-    // Aquí puedes enviar los datos del formulario al backend
-    // Puedes utilizar fetch o Axios para enviar la solicitud HTTP
+    // aca deberia mandar los datos al back. solo los printea en consola
     console.log('Tipo de carga:', tipoCarga);
 
     console.log('Calle:', calleRetiro);

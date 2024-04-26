@@ -12,7 +12,8 @@ router.post("/nuevoPedidoEnvio/", async (req, res) => {
         fechaRetiro: req.body.fechaRetiro,
         domicilioEntrega: req.body.domicilioEntrega,
         fechaEntrega: req.body.fechaEntrega,
-        observacion: req.body.observacion,
+        referenciaEntrega: req.body.referenciaEntrega,
+        referenciaRetiro: req.body.referenciaRetiro,
         fotos: req.body.fotos,
       });
       res.status(200).json(data.dataValues); // ¡Devolver el registro agregado!

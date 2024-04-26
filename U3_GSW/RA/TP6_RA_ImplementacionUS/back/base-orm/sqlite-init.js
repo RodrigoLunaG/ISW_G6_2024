@@ -19,9 +19,10 @@ async function CrearBaseSiNoExiste() {
             TipoCarga TEXT NOT NULL,
             DomicilioRetiro TEXT not null,
             FechaRetiro TEXT NOT NULL,
+            ReferenciaRetiro TEXT,
             DomicilioEntrega TEXT NOT NULL,
             FechaEntrega TEXT NOT NULL,
-            Observacion TEXT,
+            ReferenciaEntrega TEXT,
             Fotos TEXT
             );`
     );
