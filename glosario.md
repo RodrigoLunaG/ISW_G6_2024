@@ -12,3 +12,4 @@
 |SCM| Gestión de Configuración del Software|
 |RA| Requerimientos Ágiles|
 |PP| Proceso y Producto|
+|US| User Stories|
