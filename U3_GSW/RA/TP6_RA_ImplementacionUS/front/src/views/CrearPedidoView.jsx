@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import Button from '../components/Button';
 
 const CrearPedidoView = () => {
   const [tipoCarga, setTipoCarga] = useState("");
@@ -72,7 +73,7 @@ const CrearPedidoView = () => {
       provinciaEntrega
     ) {
 
-      if (selectedDateRetiro>selectedDateEntrega) {
+      if (selectedDateRetiro > selectedDateEntrega) {
         alert("Fechas incorrectas");
       }
 
@@ -125,7 +126,7 @@ const CrearPedidoView = () => {
       <View style={styles.container}>
         <View style={styles.paperBox}>
           <Text style={{ marginLeft: 15, fontSize: 16, fontWeight: "bold" }}>
-            Tipo de carga
+            Carga
           </Text>
           <RNPickerSelect
             placeholder={{ label: "Seleccionar tipo de carga", value: null }}
@@ -138,6 +139,20 @@ const CrearPedidoView = () => {
               { label: "Hacienda", value: "hacienda" },
             ]}
           />
+
+          <View style={styles.paperBox}>
+            <TouchableOpacity onPress={handleSeleccionarFoto} style={styles.button}>
+              <Text>Seleccionar foto (opcional)</Text>
+            </TouchableOpacity>
+
+
+            {foto && (
+              <View style={styles.imageContainer}>
+                <Image source={{ uri: foto }} style={styles.image} />
+              </View>
+            )}
+          </View>
+
         </View>
         <View style={styles.paperBox}>
           <Text style={styles.sectionHeader}>Retiro</Text>
@@ -229,66 +244,55 @@ const CrearPedidoView = () => {
             )}
           </View>
 
-        <View style={styles.paperBox}>
-          <Text style={styles.sectionHeader}>Dirección</Text>
-          <Text>Calle:</Text>
-          <TextInput
-            style={styles.input}
-            value={calleEntrega}
-            onChangeText={setCalleEntrega}
-            placeholder="Calle"
-          />
+          <View style={styles.paperBox}>
+            <Text style={styles.sectionHeader}>Dirección</Text>
+            <Text>Calle:</Text>
+            <TextInput
+              style={styles.input}
+              value={calleEntrega}
+              onChangeText={setCalleEntrega}
+              placeholder="Calle"
+            />
 
-          <Text>Número:</Text>
-          <TextInput
-            style={styles.input}
-            value={numeroEntrega}
-            onChangeText={setNumeroEntrega}
-            placeholder="Número"
-            keyboardType="numeric"
-          />
+            <Text>Número:</Text>
+            <TextInput
+              style={styles.input}
+              value={numeroEntrega}
+              onChangeText={setNumeroEntrega}
+              placeholder="Número"
+              keyboardType="numeric"
+            />
 
-          <Text>Localidad:</Text>
-          <TextInput
-            style={styles.input}
-            value={localidadEntrega}
-            onChangeText={setLocalidadEntrega}
-            placeholder="Localidad"
-          />
+            <Text>Localidad:</Text>
+            <TextInput
+              style={styles.input}
+              value={localidadEntrega}
+              onChangeText={setLocalidadEntrega}
+              placeholder="Localidad"
+            />
 
-          <Text>Provincia:</Text>
-          <TextInput
-            style={styles.input}
-            value={provinciaEntrega}
-            onChangeText={setProvinciaEntrega}
-            placeholder="Provincia"
-          />
+            <Text>Provincia:</Text>
+            <TextInput
+              style={styles.input}
+              value={provinciaEntrega}
+              onChangeText={setProvinciaEntrega}
+              placeholder="Provincia"
+            />
 
-          <Text>Referencia:</Text>
-          <TextInput
-            style={styles.input}
-            value={referenciaEntrega}
-            onChangeText={setReferenciaEntrega}
-            placeholder="Referencia (opcional)"
-          />
-        </View>
-        </View>
-
-        <TouchableOpacity onPress={handleSeleccionarFoto} style={styles.button}>
-          <Text>Seleccionar Foto (opcional)</Text>
-        </TouchableOpacity>
-
-        {foto && (
-          <View style={styles.imageContainer}>
-            <Image source={{ uri: foto }} style={styles.image} />
+            <Text>Referencia:</Text>
+            <TextInput
+              style={styles.input}
+              value={referenciaEntrega}
+              onChangeText={setReferenciaEntrega}
+              placeholder="Referencia (opcional)"
+            />
           </View>
-        )}
+        </View>
 
-        <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-          <Text>Crear Pedido de Envío</Text>
-        </TouchableOpacity>
+        <Button onPress={handleSubmit} title="Publicar envío" />
+
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 };
 
@@ -314,13 +318,6 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     padding: 10,
     marginBottom: 10,
-  },
-  button: {
-    backgroundColor: "transparent",
-    padding: 10,
-    borderRadius: 5,
-    alignItems: "center",
-    marginTop: 10,
   },
   imageContainer: {
     alignItems: "center",
