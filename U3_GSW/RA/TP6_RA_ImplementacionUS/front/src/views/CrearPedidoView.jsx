@@ -11,9 +11,15 @@ import {
   View,
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const CrearPedidoView = () => {
   const [tipoCarga, setTipoCarga] = useState("");
+
+  const [isDateTimePickerVisibleRetiro, setIsDateTimePickerVisibleRetiro] = useState(false);
+  const [isDateTimePickerVisibleEntrega, setIsDateTimePickerVisibleEntrega] = useState(false);
+  const [selectedDateRetiro, setSelectedDateRetiro] = useState(null);
+  const [selectedDateEntrega, setSelectedDateEntrega] = useState(null);
 
   const [calleRetiro, setCalleRetiro] = useState("");
   const [numeroRetiro, setNumeroRetiro] = useState("");
@@ -52,21 +58,64 @@ const CrearPedidoView = () => {
   };
 
   const handleSubmit = () => {
-    // aca deberia mandar los datos al back. solo los printea en consola
-    console.log("Tipo de carga:", tipoCarga);
+    if (
+      tipoCarga &&
+      selectedDateRetiro &&
+      calleRetiro &&
+      numeroRetiro &&
+      localidadRetiro &&
+      provinciaRetiro &&
+      calleEntrega &&
+      selectedDateEntrega &&
+      numeroEntrega &&
+      localidadEntrega &&
+      provinciaEntrega
+    ) {
 
-    console.log("Calle:", calleRetiro);
-    console.log("Número:", numeroRetiro);
-    console.log("Localidad:", localidadRetiro);
-    console.log("Provincia:", provinciaRetiro);
-    console.log("Referencia:", referenciaRetiro);
+      if (selectedDateRetiro>selectedDateEntrega) {
+        alert("Fechas incorrectas");
+      }
 
-    console.log("Calle:", calleEntrega);
-    console.log("Número:", numeroEntrega);
-    console.log("Localidad:", localidadEntrega);
-    console.log("Provincia:", provinciaEntrega);
-    console.log("Referencia:", referenciaEntrega);
-    console.log("Foto:", foto);
+      console.log("Tipo de carga:", tipoCarga);
+      console.log("Calle:", calleRetiro);
+      console.log("Número:", numeroRetiro);
+      console.log("Localidad:", localidadRetiro);
+      console.log("Provincia:", provinciaRetiro);
+      console.log("Referencia:", referenciaRetiro);
+
+      console.log("Calle:", calleEntrega);
+      console.log("Número:", numeroEntrega);
+      console.log("Localidad:", localidadEntrega);
+      console.log("Provincia:", provinciaEntrega);
+      console.log("Referencia:", referenciaEntrega);
+      console.log("Foto:", foto);
+    } else {
+      alert("Faltan campos por rellenar");
+    }
+  };
+
+  const handleDateChangeRetiro = (event, selectedDateRetiro) => {
+    const currentDate = selectedDateRetiro || new Date();
+    setSelectedDateRetiro(currentDate);
+    setIsDateTimePickerVisibleRetiro(false);
+  };
+
+  const handleDateChangeEntrega = (event, selectedDateEntrega) => {
+    const currentDate = selectedDateEntrega || new Date();
+    setSelectedDateEntrega(currentDate);
+    setIsDateTimePickerVisibleEntrega(false);
+  };
+
+  const showDateTimePickerRetiro = () => {
+    const currentDate = selectedDateRetiro || new Date();
+    setSelectedDateRetiro(currentDate);
+    setIsDateTimePickerVisibleRetiro(true);
+  };
+
+  const showDateTimePickerEntrega = () => {
+    const currentDate = selectedDateEntrega || new Date();
+    setSelectedDateEntrega(currentDate);
+    setIsDateTimePickerVisibleEntrega(true);
   };
 
   return (
@@ -90,53 +139,98 @@ const CrearPedidoView = () => {
             ]}
           />
         </View>
-
         <View style={styles.paperBox}>
-          <Text style={styles.sectionHeader}>Dirección de retiro</Text>
-          <Text>Calle:</Text>
-          <TextInput
-            style={styles.input}
-            value={calleRetiro}
-            onChangeText={setCalleRetiro}
-            placeholder="Calle"
-          />
+          <Text style={styles.sectionHeader}>Retiro</Text>
 
-          <Text>Número:</Text>
-          <TextInput
-            style={styles.input}
-            value={numeroRetiro}
-            onChangeText={setNumeroRetiro}
-            placeholder="Número"
-            keyboardType="numeric"
-          />
+          <View style={styles.paperBox}>
+            <Text style={styles.sectionHeader}>Fecha</Text>
+            <TouchableOpacity onPress={showDateTimePickerRetiro}>
+              <Text style={styles.dateTimePickerText}>
+                {selectedDateRetiro ? selectedDateRetiro.toLocaleDateString("es-ES") : "Seleccionar fecha"}
+              </Text>
+            </TouchableOpacity>
+            {isDateTimePickerVisibleRetiro && (
+              <DateTimePicker
+                value={selectedDateRetiro}
+                mode="date"
+                display="default"
+                minimumDate={new Date()}
+                onChange={handleDateChangeRetiro}
+                style={styles.dateTimePicker}
+              />
+            )}
+          </View>
 
-          <Text>Localidad:</Text>
-          <TextInput
-            style={styles.input}
-            value={localidadRetiro}
-            onChangeText={setLocalidadRetiro}
-            placeholder="Localidad"
-          />
+          <View style={styles.paperBox}>
+            <Text style={styles.sectionHeader}>Dirección</Text>
+            <Text>Calle:</Text>
+            <TextInput
+              style={styles.input}
+              value={calleRetiro}
+              onChangeText={setCalleRetiro}
+              placeholder="Calle"
+            />
 
-          <Text>Provincia:</Text>
-          <TextInput
-            style={styles.input}
-            value={provinciaRetiro}
-            onChangeText={setProvinciaRetiro}
-            placeholder="Provincia"
-          />
+            <Text>Número:</Text>
+            <TextInput
+              style={styles.input}
+              value={numeroRetiro}
+              onChangeText={setNumeroRetiro}
+              placeholder="Número"
+              keyboardType="numeric"
+            />
 
-          <Text>Referencia:</Text>
-          <TextInput
-            style={styles.input}
-            value={referenciaRetiro}
-            onChangeText={setReferenciaRetiro}
-            placeholder="Referencia"
-          />
+            <Text>Localidad:</Text>
+            <TextInput
+              style={styles.input}
+              value={localidadRetiro}
+              onChangeText={setLocalidadRetiro}
+              placeholder="Localidad"
+            />
+
+            <Text>Provincia:</Text>
+            <TextInput
+              style={styles.input}
+              value={provinciaRetiro}
+              onChangeText={setProvinciaRetiro}
+              placeholder="Provincia"
+            />
+
+            <Text>Referencia:</Text>
+            <TextInput
+              style={styles.input}
+              value={referenciaRetiro}
+              onChangeText={setReferenciaRetiro}
+              placeholder="Referencia (opcional)"
+            />
+          </View>
+
         </View>
 
         <View style={styles.paperBox}>
-          <Text style={styles.sectionHeader}>Dirección de entrega</Text>
+          <Text style={styles.sectionHeader}>Entrega</Text>
+
+          <View style={styles.paperBox}>
+            <Text style={styles.sectionHeader}>Fecha</Text>
+            <TouchableOpacity onPress={showDateTimePickerEntrega}>
+              <Text style={styles.dateTimePickerText}>
+                {selectedDateEntrega ? selectedDateEntrega.toLocaleDateString("es-ES") : "Seleccionar fecha"}
+              </Text>
+            </TouchableOpacity>
+            {isDateTimePickerVisibleEntrega && (
+              <DateTimePicker
+                value={selectedDateEntrega}
+                mode="date"
+                display="default"
+                minimumDate={selectedDateRetiro ? selectedDateRetiro : new Date()}
+                onChange={handleDateChangeEntrega}
+                style={styles.dateTimePicker}
+              />
+            )}
+          </View>
+
+        <View style={styles.paperBox}>
+          <Text style={styles.sectionHeader}>Dirección</Text>
           <Text>Calle:</Text>
           <TextInput
             style={styles.input}
@@ -175,12 +269,13 @@ const CrearPedidoView = () => {
             style={styles.input}
             value={referenciaEntrega}
             onChangeText={setReferenciaEntrega}
-            placeholder="Referencia"
+            placeholder="Referencia (opcional)"
           />
+        </View>
         </View>
 
         <TouchableOpacity onPress={handleSeleccionarFoto} style={styles.button}>
-          <Text>Seleccionar Foto</Text>
+          <Text>Seleccionar Foto (opcional)</Text>
         </TouchableOpacity>
 
         {foto && (
@@ -240,6 +335,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 24
   },
+  dateTimePicker: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 10,
+  },
 });
 
 export default CrearPedidoView;
+
