@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import pedidoModel from "./pedidos.js";
+import transportistaModel from "./transportistas.js";
 
 const BD = new Sequelize({
     dialect : 'sqlite',
@@ -10,6 +11,12 @@ BD.define(
     'Pedidos',
     pedidoModel.PedidosAtributos,
     pedidoModel.PedidosOptions
+)
+
+BD.define(
+    'Transportistas',
+    transportistaModel.Atributos,
+    transportistaModel.Options,
 )
 
 const conectar = async () => {

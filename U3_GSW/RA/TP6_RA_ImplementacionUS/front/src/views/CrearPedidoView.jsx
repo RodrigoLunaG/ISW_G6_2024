@@ -12,6 +12,17 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import axios from 'axios';
+
+const crearPedido = async (pedidoData) => {
+  try {
+    const response = await axios.post('http://192.168.1.3:3001/api/pedido', pedidoData);
+    console.log('Respuesta del servidor:', response.data);
+    // Realizar acciones adicionales según la respuesta del servidor
+  } catch (error) {
+    console.error('Error al crear el pedido:', error);
+  }
+};
 
 const CrearPedidoView = () => {
   const [tipoCarga, setTipoCarga] = useState("");
@@ -73,27 +84,44 @@ const CrearPedidoView = () => {
     ) {
 
       if (selectedDateRetiro>selectedDateEntrega) {
-        alert("Fechas incorrectas");
+        alert("La fecha de retiro no puede ser superior a la fecha de entrega");
       }
+      
+      // si pasa las restricciones del front, se crea el pedido
 
-      console.log("Tipo de carga:", tipoCarga);
-      console.log("Calle:", calleRetiro);
-      console.log("Número:", numeroRetiro);
-      console.log("Localidad:", localidadRetiro);
-      console.log("Provincia:", provinciaRetiro);
-      console.log("Referencia:", referenciaRetiro);
+      const pedidoEnvio = {
+        tipoCarga,
+        fechaRetiro: selectedDateRetiro,
+        calleRetiro,
+        numeroRetiro,
+        localidadRetiro,
+        provinciaRetiro,
+        referenciaRetiro,
+        fechaEntrega: selectedDateEntrega,
+        calleEntrega,
+        numeroEntrega,
+        localidadEntrega,
+        provinciaEntrega,
+        referenciaEntrega,
+        foto,
+      };
+    
+      try {
+        
+        crearPedido(pedidoEnvio);
+        alert("Pedido creado exitosamente");
+        
+        setTipoCarga("");
+        //limpiar los otros tambien
 
-      console.log("Calle:", calleEntrega);
-      console.log("Número:", numeroEntrega);
-      console.log("Localidad:", localidadEntrega);
-      console.log("Provincia:", provinciaEntrega);
-      console.log("Referencia:", referenciaEntrega);
-      console.log("Foto:", foto);
+      } catch (error) {
+        console.error("Error al crear el pedido:", error);
+        alert("Hubo un error al crear el pedido");
+      }
     } else {
       alert("Faltan campos por rellenar");
     }
   };
-
   const handleDateChangeRetiro = (event, selectedDateRetiro) => {
     const currentDate = selectedDateRetiro || new Date();
     setSelectedDateRetiro(currentDate);

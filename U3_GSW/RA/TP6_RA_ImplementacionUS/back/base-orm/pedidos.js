@@ -17,7 +17,7 @@ const PedidosAtributos =  {
         }
     },
     FechaRetiro: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: false,
         validate: {
             notEmpty: {
@@ -71,7 +71,7 @@ const PedidosAtributos =  {
         allowNull: true,
     },
     FechaEntrega: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: false,
         validate: {
             notEmpty: {
