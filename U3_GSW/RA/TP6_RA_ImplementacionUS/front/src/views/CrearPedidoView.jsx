@@ -17,7 +17,8 @@ import axios from 'axios';
 
 
 // peticion al servidor : modificar la url segun su ip local 192.186.X.X
-const urlResource = 'http://192.168.100.2:3001/api/pedido';
+const urlResource = 'http://192.168.100.8:3001/api/pedido';
+const urlMail = 'http://192.168.100.8:3001/api/transportistas/enviar-correos';
 
 const crearPedido = async (pedidoData) => {
   try {
@@ -31,6 +32,18 @@ const crearPedido = async (pedidoData) => {
   }
 };
 
+const notificarTransportistas = async (pedido) => {
+  try {
+    
+    const response = await axios.post(urlMail, pedido);
+
+    return response.data;
+  } catch (error) {
+    console.log('Error al enviar correo:', error);
+    throw error;
+
+}
+};
 
 const CrearPedidoView = () => {
   const [TipoCarga, setTipoCarga] = useState("");
@@ -118,6 +131,7 @@ const CrearPedidoView = () => {
         
         crearPedido(pedidoEnvio);
         alert("Pedido creado exitosamente");
+        notificarTransportistas(pedidoEnvio)
         
         setTipoCarga("");
         //limpiar los otros tambien

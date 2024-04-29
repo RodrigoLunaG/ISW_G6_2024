@@ -4,7 +4,7 @@ import transportistaModel from "./transportistas.js";
 
 const BD = new Sequelize({
     dialect : 'sqlite',
-    storage : './Pedidos.db'
+    storage : './base-orm/Tangoapp.db'
 })
 
 BD.define(
@@ -15,8 +15,8 @@ BD.define(
 
 BD.define(
     'Transportistas',
-    transportistaModel.Atributos,
-    transportistaModel.Options,
+    transportistaModel.transportistasAtributos,
+    transportistaModel.transportistasOptions,
 )
 
 const conectar = async () => {
