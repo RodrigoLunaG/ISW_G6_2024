@@ -3,7 +3,7 @@ import { ValidationError } from 'sequelize'
 
 async function  publicar_pedido(req,res){
     const pedido = req.body
-
+    console.log(pedido)
     try{
         const data = await BD.models.Pedidos.create(pedido)
         res.status(200).send(data)
