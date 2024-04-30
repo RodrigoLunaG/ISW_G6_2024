@@ -1,6 +1,6 @@
-import { DataTypes } from "sequelize";
+import { DataTypes } from 'sequelize';
 
-const PedidosAtributos =  { 
+const pedidosAtributos =  { 
     IdPedido: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,7 +12,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "El tipo de carga es requerida"
+                msg: 'El tipo de carga es requerida'
             }
         }
     },
@@ -22,7 +22,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La fecha de retiro es requerida"
+                msg: 'La fecha de retiro es requerida'
             }
         }
     },
@@ -32,7 +32,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La calle de retiro es requerida"
+                msg: 'La calle de retiro es requerida'
             }
         }
     },
@@ -42,7 +42,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La altura de la calle de retiro es requerida"
+                msg: 'La altura de la calle de retiro es requerida'
             }
         }
     },
@@ -52,7 +52,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La localidad retiro es requerida"
+                msg: 'La localidad retiro es requerida'
             }
         }
     },
@@ -62,7 +62,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La provincia de retiro es requerida"
+                msg: 'La provincia de retiro es requerida'
             }
         }
     },
@@ -76,7 +76,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La fecha de entrega es requerida"
+                msg: 'La fecha de entrega es requerida'
             }
         }
     },
@@ -87,7 +87,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La calle de entrega es requerida"
+                msg: 'La calle de entrega es requerida'
             }
         }
     },
@@ -97,7 +97,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La altura de la calle de entrega es requerida"
+                msg: 'La altura de la calle de entrega es requerida'
             }
         }
     },
@@ -107,7 +107,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La localidad entrega es requerida"
+                msg: 'La localidad entrega es requerida'
             }
         }
     },
@@ -117,7 +117,7 @@ const PedidosAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La provincia de entrega es requerida"
+                msg: 'La provincia de entrega es requerida'
             }
         }
     },
@@ -132,12 +132,12 @@ const PedidosAtributos =  {
     
 }
 
-const PedidosOptions = {
+const pedidosOptions = {
     timestamps: false
 }
 
 const pedidoModel = {
-    PedidosAtributos, PedidosOptions
+    pedidosAtributos, pedidosOptions
 }
 
 export default pedidoModel

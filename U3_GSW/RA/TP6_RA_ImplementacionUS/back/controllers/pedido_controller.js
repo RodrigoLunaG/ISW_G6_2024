@@ -1,7 +1,7 @@
 import BD from '../base-orm/db.js'
 import { ValidationError } from 'sequelize'
 
-async function  publicar_pedido(req,res){
+async function  publicarPedido(req,res){
     const pedido = req.body
     console.log(pedido)
     try{
@@ -10,7 +10,7 @@ async function  publicar_pedido(req,res){
     }catch(err){
         if(err instanceof ValidationError){
             let messages = '';
-            err.errors.forEach((x) => messages += (x.path ?? 'campo') + ": " + x.message + '\n');
+            err.errors.forEach((x) => messages += (x.path ?? 'campo') + ': ' + x.message + '\n');
             res.status(400).json({message : messages});
         }else{
             throw err
@@ -18,5 +18,5 @@ async function  publicar_pedido(req,res){
     }
 }
 
-export default publicar_pedido;
+export default publicarPedido;
 

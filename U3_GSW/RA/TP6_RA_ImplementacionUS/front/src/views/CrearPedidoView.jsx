@@ -1,5 +1,5 @@
-import * as ImagePicker from "expo-image-picker";
-import { useState } from "react";
+import * as ImagePicker from 'expo-image-picker';
+import { useState } from 'react';
 import {
   Image,
   Platform,
@@ -9,17 +9,17 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
-import RNPickerSelect from "react-native-picker-select";
+} from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Button from '../components/Button';
 import axios from 'axios';
 
 
-
 // peticion al servidor : modificar la url segun su ip local 192.186.X.X
 const urlResource = 'https://ae60-186-109-240-137.ngrok-free.app/api/pedido';
 const urlMail = 'https://ae60-186-109-240-137.ngrok-free.app/api/transportistas/enviar-correos';
+
 
 const crearPedido = async (pedidoData) => {
   try {
@@ -69,11 +69,11 @@ const CrearPedidoView = () => {
   const [foto, setFoto] = useState(null);
 
   const handleSeleccionarFoto = async () => {
-    if (Platform.OS !== "web") {
+    if (Platform.OS !== 'web') {
       const { status } =
         await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Se necesita permiso para acceder a la galería de fotos");
+      if (status !== 'granted') {
+        alert('Se necesita permiso para acceder a la galería de fotos');
         return;
       }
     }
@@ -112,7 +112,7 @@ const CrearPedidoView = () => {
     ) {
 
       if (selectedDateRetiro > selectedDateEntrega) {
-        alert("La fecha de retiro no puede ser superior a la fecha de entrega");
+        alert('La fecha de retiro no puede ser superior a la fecha de entrega');
       }
 
       // si pasa las restricciones del front, se crea el pedido
@@ -137,7 +137,7 @@ const CrearPedidoView = () => {
       try {
 
         crearPedido(pedidoEnvio);
-        alert("Pedido creado exitosamente");
+        alert('Pedido creado exitosamente');
         notificarTransportistas(pedidoEnvio)
 
         setTipoCarga("");
@@ -157,14 +157,12 @@ const CrearPedidoView = () => {
 
         setFoto(null);
 
-
-
       } catch (error) {
-        console.error("Error al crear el pedido:", error);
-        alert("Hubo un error al crear el pedido");
+        console.error('Error al crear el pedido:', error);
+        alert('Hubo un error al crear el pedido');
       }
     } else {
-      alert("Faltan campos por rellenar");
+      alert('Faltan campos por rellenar');
     }
   };
   const handleDateChangeRetiro = (event, selectedDateRetiro) => {

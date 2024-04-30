@@ -1,6 +1,6 @@
 import BD from '../base-orm/db.js';
 import { Op } from 'sequelize';
-import { enviarCorreo} from '../services/emailService.js'
+import { enviarCorreo} from '../services/email_service.js'
 
 async function enviarCorreosATransportistas(req, res) {
     try {

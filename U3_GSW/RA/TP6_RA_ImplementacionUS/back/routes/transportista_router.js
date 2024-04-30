@@ -1,5 +1,5 @@
-import express from "express";
-import enviarCorreosATransportistas from "../controllers/transportista_controller.js";
+import express from 'express';
+import enviarCorreosATransportistas from '../controllers/transportista_controller.js';
 
 const router = express.Router();
 

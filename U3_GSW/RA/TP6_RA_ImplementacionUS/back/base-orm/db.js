@@ -1,6 +1,6 @@
-import { Sequelize } from "sequelize";
-import pedidoModel from "./pedidos.js";
-import transportistaModel from "./transportistas.js";
+import { Sequelize } from 'sequelize';
+import pedidoModel from './pedidos.js';
+import transportistaModel from './transportistas.js';
 
 const BD = new Sequelize({
     dialect : 'sqlite',
@@ -23,7 +23,7 @@ const conectar = async () => {
     try { 
         await BD.sync();
     }catch(error){
-        console.log("ha ocurrido un error : ", error)
+        console.log('ha ocurrido un error : ', error)
     }
 }
 

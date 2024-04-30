@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+import { DataTypes } from 'sequelize';
 
 const transportistasAtributos =  { 
     IdTransportista: {
@@ -12,7 +12,7 @@ const transportistasAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "El email es requerida"
+                msg: 'El email es requerida'
             }
         }
     },
@@ -23,7 +23,7 @@ const transportistasAtributos =  {
         validate: {
             notEmpty: {
                 args: true,
-                msg: "La zona de cobertura es requerida"
+                msg: 'La zona de cobertura es requerida'
             }
         }
     }
