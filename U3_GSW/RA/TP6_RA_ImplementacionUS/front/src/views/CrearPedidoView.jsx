@@ -17,8 +17,8 @@ import axios from 'axios';
 
 
 // peticion al servidor : modificar la url segun su ip local 192.186.X.X
-const urlResource = 'https://ae60-186-109-240-137.ngrok-free.app/api/pedido';
-const urlMail = 'https://ae60-186-109-240-137.ngrok-free.app/api/transportistas/enviar-correos';
+const urlResource = 'https://3685-2800-40-49-7f50-4421-722c-eaf4-ff94.ngrok-free.app/api/pedido';
+const urlMail = 'https://3685-2800-40-49-7f50-4421-722c-eaf4-ff94.ngrok-free.app/api/transportistas/enviar-correos';
 
 
 const crearPedido = async (pedidoData) => {
@@ -91,7 +91,7 @@ const CrearPedidoView = () => {
   };
 
   const handleSubmit = () => {
-      fetch('https://ae60-186-109-240-137.ngrok-free.app/')
+      fetch('https://3685-2800-40-49-7f50-4421-722c-eaf4-ff94.ngrok-free.app/')
       .then(response => response.text())
       .then(data => console.log(data))
       .catch(error => console.error(error));

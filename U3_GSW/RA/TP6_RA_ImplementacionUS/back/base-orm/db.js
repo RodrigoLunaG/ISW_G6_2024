@@ -9,8 +9,8 @@ const BD = new Sequelize({
 
 BD.define(
     'Pedidos',
-    pedidoModel.PedidosAtributos,
-    pedidoModel.PedidosOptions
+    pedidoModel.pedidosAtributos,
+    pedidoModel.pedidosOptions
 )
 
 BD.define(

@@ -1,7 +1,7 @@
 import express from 'express'
-import publicar_pedido from '../controllers/pedido_controller.js';
+import publicarPedido from '../controllers/pedido_controller.js';
 const router = express.Router();
 
-router.post('/api/pedido' , publicar_pedido)
+router.post('/api/pedido' , publicarPedido)
 
 export default router
