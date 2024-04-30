@@ -1,15 +1,22 @@
 import { Sequelize } from "sequelize";
 import pedidoModel from "./pedidos.js";
+import transportistaModel from "./transportistas.js";
 
 const BD = new Sequelize({
     dialect : 'sqlite',
-    storage : './Pedidos.db'
+    storage : './base-orm/Tangoapp.db'
 })
 
 BD.define(
     'Pedidos',
     pedidoModel.PedidosAtributos,
     pedidoModel.PedidosOptions
+)
+
+BD.define(
+    'Transportistas',
+    transportistaModel.transportistasAtributos,
+    transportistaModel.transportistasOptions,
 )
 
 const conectar = async () => {

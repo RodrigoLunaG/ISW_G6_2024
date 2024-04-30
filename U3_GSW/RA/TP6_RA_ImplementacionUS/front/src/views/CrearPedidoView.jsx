@@ -13,26 +13,58 @@ import {
 import RNPickerSelect from "react-native-picker-select";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Button from '../components/Button';
+import axios from 'axios';
+
+
+
+// peticion al servidor : modificar la url segun su ip local 192.186.X.X
+const urlResource = 'https://ae60-186-109-240-137.ngrok-free.app/api/pedido';
+const urlMail = 'https://ae60-186-109-240-137.ngrok-free.app/api/transportistas/enviar-correos';
+
+const crearPedido = async (pedidoData) => {
+  try {
+    console.log(pedidoData);
+    const response = await axios.post(urlResource, pedidoData);
+    console.log('Pedido creado con éxito');
+    return response.data;
+  } catch (error) {
+    console.log('Error al crear pedido:', error);
+    throw error;
+  }
+};
+
+const notificarTransportistas = async (pedido) => {
+  try {
+
+    const response = await axios.post(urlMail, pedido);
+
+    return response.data;
+  } catch (error) {
+    console.log('Error al enviar correo:', error);
+    throw error;
+
+  }
+};
 
 const CrearPedidoView = () => {
-  const [tipoCarga, setTipoCarga] = useState("");
+  const [TipoCarga, setTipoCarga] = useState("");
 
   const [isDateTimePickerVisibleRetiro, setIsDateTimePickerVisibleRetiro] = useState(false);
   const [isDateTimePickerVisibleEntrega, setIsDateTimePickerVisibleEntrega] = useState(false);
   const [selectedDateRetiro, setSelectedDateRetiro] = useState(null);
   const [selectedDateEntrega, setSelectedDateEntrega] = useState(null);
 
-  const [calleRetiro, setCalleRetiro] = useState("");
-  const [numeroRetiro, setNumeroRetiro] = useState("");
-  const [localidadRetiro, setLocalidadRetiro] = useState("");
-  const [provinciaRetiro, setProvinciaRetiro] = useState("");
-  const [referenciaRetiro, setReferenciaRetiro] = useState("");
+  const [CalleRetiro, setCalleRetiro] = useState("");
+  const [AlturaRetiro, setNumeroRetiro] = useState("");
+  const [LocalidadRetiro, setLocalidadRetiro] = useState("");
+  const [ProvinciaRetiro, setProvinciaRetiro] = useState("");
+  const [ReferenciaRetiro, setReferenciaRetiro] = useState("");
 
-  const [calleEntrega, setCalleEntrega] = useState("");
-  const [numeroEntrega, setNumeroEntrega] = useState("");
-  const [localidadEntrega, setLocalidadEntrega] = useState("");
-  const [provinciaEntrega, setProvinciaEntrega] = useState("");
-  const [referenciaEntrega, setReferenciaEntrega] = useState("");
+  const [CalleEntrega, setCalleEntrega] = useState("");
+  const [AlturaEntrega, setNumeroEntrega] = useState("");
+  const [LocalidadEntrega, setLocalidadEntrega] = useState("");
+  const [ProvinciaEntrega, setProvinciaEntrega] = useState("");
+  const [ReferenciaEntrega, setReferenciaEntrega] = useState("");
 
   const [foto, setFoto] = useState(null);
 
@@ -59,42 +91,82 @@ const CrearPedidoView = () => {
   };
 
   const handleSubmit = () => {
+      fetch('https://ae60-186-109-240-137.ngrok-free.app/')
+      .then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+
+
     if (
-      tipoCarga &&
+      TipoCarga &&
       selectedDateRetiro &&
-      calleRetiro &&
-      numeroRetiro &&
-      localidadRetiro &&
-      provinciaRetiro &&
-      calleEntrega &&
+      CalleRetiro &&
+      AlturaRetiro &&
+      LocalidadRetiro &&
+      ProvinciaRetiro &&
+      CalleEntrega &&
       selectedDateEntrega &&
-      numeroEntrega &&
-      localidadEntrega &&
-      provinciaEntrega
+      AlturaEntrega &&
+      LocalidadEntrega &&
+      ProvinciaEntrega
     ) {
 
       if (selectedDateRetiro > selectedDateEntrega) {
-        alert("Fechas incorrectas");
+        alert("La fecha de retiro no puede ser superior a la fecha de entrega");
       }
 
-      console.log("Tipo de carga:", tipoCarga);
-      console.log("Calle:", calleRetiro);
-      console.log("Número:", numeroRetiro);
-      console.log("Localidad:", localidadRetiro);
-      console.log("Provincia:", provinciaRetiro);
-      console.log("Referencia:", referenciaRetiro);
+      // si pasa las restricciones del front, se crea el pedido
 
-      console.log("Calle:", calleEntrega);
-      console.log("Número:", numeroEntrega);
-      console.log("Localidad:", localidadEntrega);
-      console.log("Provincia:", provinciaEntrega);
-      console.log("Referencia:", referenciaEntrega);
-      console.log("Foto:", foto);
+      const pedidoEnvio = {
+        TipoCarga,
+        FechaRetiro: selectedDateRetiro.toISOString(),
+        CalleRetiro,
+        AlturaRetiro,
+        LocalidadRetiro,
+        ProvinciaRetiro,
+        ReferenciaRetiro,
+        FechaEntrega: selectedDateEntrega.toISOString(),
+        CalleEntrega,
+        AlturaEntrega,
+        LocalidadEntrega,
+        ProvinciaEntrega,
+        ReferenciaEntrega,
+        foto,
+      };
+
+      try {
+
+        crearPedido(pedidoEnvio);
+        alert("Pedido creado exitosamente");
+        notificarTransportistas(pedidoEnvio)
+
+        setTipoCarga("");
+        setIsDateTimePickerVisibleRetiro(false);
+        setIsDateTimePickerVisibleEntrega(false);
+        setSelectedDateRetiro(null);
+        setSelectedDateEntrega(null);
+        setCalleRetiro("");
+        setNumeroRetiro("");
+        setLocalidadRetiro("");
+        setProvinciaRetiro("");
+        setReferenciaRetiro("");
+        setCalleEntrega("");
+        setNumeroEntrega("");
+        setLocalidadEntrega("");
+        setProvinciaEntrega("");
+
+        setFoto(null);
+
+
+
+      } catch (error) {
+        console.error("Error al crear el pedido:", error);
+        alert("Hubo un error al crear el pedido");
+      }
     } else {
       alert("Faltan campos por rellenar");
     }
   };
-
   const handleDateChangeRetiro = (event, selectedDateRetiro) => {
     const currentDate = selectedDateRetiro || new Date();
     setSelectedDateRetiro(currentDate);
@@ -130,7 +202,7 @@ const CrearPedidoView = () => {
           </Text>
           <RNPickerSelect
             placeholder={{ label: "Seleccionar tipo de carga", value: null }}
-            value={tipoCarga}
+            value={TipoCarga}
             onValueChange={(value) => setTipoCarga(value)}
             items={[
               { label: "Documentación", value: "documentacion" },
@@ -181,7 +253,7 @@ const CrearPedidoView = () => {
             <Text>Calle:</Text>
             <TextInput
               style={styles.input}
-              value={calleRetiro}
+              value={CalleRetiro}
               onChangeText={setCalleRetiro}
               placeholder="Calle"
             />
@@ -189,7 +261,7 @@ const CrearPedidoView = () => {
             <Text>Número:</Text>
             <TextInput
               style={styles.input}
-              value={numeroRetiro}
+              value={AlturaRetiro}
               onChangeText={setNumeroRetiro}
               placeholder="Número"
               keyboardType="numeric"
@@ -198,7 +270,7 @@ const CrearPedidoView = () => {
             <Text>Localidad:</Text>
             <TextInput
               style={styles.input}
-              value={localidadRetiro}
+              value={LocalidadRetiro}
               onChangeText={setLocalidadRetiro}
               placeholder="Localidad"
             />
@@ -206,7 +278,7 @@ const CrearPedidoView = () => {
             <Text>Provincia:</Text>
             <TextInput
               style={styles.input}
-              value={provinciaRetiro}
+              value={ProvinciaRetiro}
               onChangeText={setProvinciaRetiro}
               placeholder="Provincia"
             />
@@ -214,7 +286,7 @@ const CrearPedidoView = () => {
             <Text>Referencia:</Text>
             <TextInput
               style={styles.input}
-              value={referenciaRetiro}
+              value={ReferenciaRetiro}
               onChangeText={setReferenciaRetiro}
               placeholder="Referencia (opcional)"
             />
@@ -249,7 +321,7 @@ const CrearPedidoView = () => {
             <Text>Calle:</Text>
             <TextInput
               style={styles.input}
-              value={calleEntrega}
+              value={CalleEntrega}
               onChangeText={setCalleEntrega}
               placeholder="Calle"
             />
@@ -257,7 +329,7 @@ const CrearPedidoView = () => {
             <Text>Número:</Text>
             <TextInput
               style={styles.input}
-              value={numeroEntrega}
+              value={AlturaEntrega}
               onChangeText={setNumeroEntrega}
               placeholder="Número"
               keyboardType="numeric"
@@ -266,7 +338,7 @@ const CrearPedidoView = () => {
             <Text>Localidad:</Text>
             <TextInput
               style={styles.input}
-              value={localidadEntrega}
+              value={LocalidadEntrega}
               onChangeText={setLocalidadEntrega}
               placeholder="Localidad"
             />
@@ -274,7 +346,7 @@ const CrearPedidoView = () => {
             <Text>Provincia:</Text>
             <TextInput
               style={styles.input}
-              value={provinciaEntrega}
+              value={ProvinciaEntrega}
               onChangeText={setProvinciaEntrega}
               placeholder="Provincia"
             />
@@ -282,7 +354,7 @@ const CrearPedidoView = () => {
             <Text>Referencia:</Text>
             <TextInput
               style={styles.input}
-              value={referenciaEntrega}
+              value={ReferenciaEntrega}
               onChangeText={setReferenciaEntrega}
               placeholder="Referencia (opcional)"
             />
