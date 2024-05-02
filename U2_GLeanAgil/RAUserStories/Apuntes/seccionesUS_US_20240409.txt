@@ -8,11 +8,11 @@ Confirmación
 Conversación
 
 
-Frase verbal_: nombre que comienza con verbo en infinito para dar una idea gral de lo que tiene la jira card
+Frase verbal_: nombre que comienza con verbo en infinito para dar una idea general de lo que tiene la jira card
 ej.: Vender
 ------
 
-Como rol to quería act para valor de negocio
+Como [rol] yo quería [actividad] para [valor de negocio]
 
 
 Criterios de aceptación: limites, que se necesita
@@ -25,7 +25,7 @@ Criterios de aceptación: limites, que se necesita
 Dorso
 ------
 
-Pruebas de usuario: se asume que ya paso el testing y no hay errores para hacer estas preubas.
+Pruebas de usuario: se asume que ya paso el testing y no hay errores para hacer estas pruebas.
 El PO se encarga de ejecutar las pruebas para validar si les sirve al usuario o no
 
 Tienen el formato
@@ -43,4 +43,4 @@ Si existe  un criterio de aceptación si o si se debería de poder probar
 
 
 
-No siempre el PO no es cliente(el que paga), puede que se mande alguien propio
+No siempre el PO es cliente(el que paga), puede que se mande alguien propio del equipo

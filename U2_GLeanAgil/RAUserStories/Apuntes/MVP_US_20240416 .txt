@@ -1,14 +1,14 @@
 Estimaciones
 Poker estimation
-- Fibonacci: se usa 1/2, 1, 2, ,3 ,5, 8 ,13
-- Canonica: se usa para  comparacion. Debe ser simple con poca o nula incertidumbre
+- Fibonacci: Se usa 1/2, 1, 2, ,3 ,5, 8 ,13
+- Canonica: Se usa para  comparacion. Debe ser simple con poca o nula incertidumbre
 
 Story point:
 - Complejidad
 - Esfuerzo
 - incertidumbre: es lo que  mas hace que cresca la user en SP si no se sabe hacer algo
 
-MVP: minimum viable prodcut
+MVP: Minimum viable Product
 Debe resolver podroblemas ¿A quien le da valor?
 Tiene lo minimo pero da valor a quien lo requiera. No necesariamente es un prodcuto funcionando, puede ser un video o presentacion que da valor
 - hipotesis
