@@ -1,0 +1,53 @@
+## SCRUM
+
+*No entra al primer parcial, igual que metricas.*
+
+*La US esta completa o no, no puede estar a la mitad.*
+
+*TODOS HACEN TODO*
+
+Plantea un proceso un empirico que tiene ciertas practicas que nos ayudan a respetar los pilares del empirismo, valores y commitments.
+
+Product owner: deberia escribir las user story, es el dueño del producto, es parte del equipo, que US son prioritarias.
+
+Scrum master: es un facilitador, ayuda a que el equipo no se trabe, facilitar el contexto, puede cambiar dependiendo el sprint, no es lider de proyecto y no asigna tareas. es parte del equipo
+
+Desarolladores
+
+### Artefactos
+
+cada artefacto tiene su compromiso
+
+### Timebox
+
+Poner tiempo para hacer actividades
+
+### Ready
+
+valor de negocio claramente expresada, detalles suficientemente comprendidos por el equipo de forma tal que puedan tomar una decision informada sobre si pueden completar el item el product backlog
+
+### Done
+
+### Capacidad del equipo
+
+necesitamos tener en cuenta que disponibilidad va a tener el equipo, de las horas que trabaja cuantas van a ser productivas?
+
+### Metricas de SCRUM
+
+capacidad, velocidad y rtf
+
+### Ambiente de trabajo
+
+### Herramientas de scrum
+
+Taskboard - descomponer el US en tareas, cuanto tiempo estimado, que persona lo va a hacer, y asi formar un tablero. con tareas hechas, para verificar, en proceso, y para hacer.
+
+Graficos:
+
+### Metricas
+
+va a medir la entrega del software funcionando. Hay que medir lo que sea necesario y nada mas.
+
+Capacidad: horas de trabajo al dia X dias
+
+Velocidad: Se calcula sumando el numero de story points que el equipo completa durante la iteracion. se cuentan de las que estan completas, no las que estan parcialmente completas. la velocidad corrige los errores de estimacion.
