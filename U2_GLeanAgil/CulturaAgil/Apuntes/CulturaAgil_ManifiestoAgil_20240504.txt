@@ -1,0 +1,9 @@
+Cultura Ágil
+Va mas allá de practicas o la definicion de proceso. Es el concepto de ser agil y tener institucionalizado en la organización los principios agiles.
+La cultura agil no se logra a partir de llevar a cabo las practicas que se plantean en scrum solamente, sino que la organización tiene que tener incorporado los principios que se plantean en el manifiesto agil.
+Agil esta basado en procesos empíricos, que tienen tres pilares:
+•	Transparencia: ejemplo, la daily
+•	Inspeccion: ejemplo, sprint review. Sprint retrospective (trabaja en las 3 fuertemente)
+•	Adaptacion: ejemplo, la daily
+De alguna forma las practicas de scrum nos obligan a trabajar sobre estos tres pilares. Las practicas nos GUIAN a HACER agil, no nos asegura SER agiles.
+Valores agiles (4) – se cascadean en los 12 principios
