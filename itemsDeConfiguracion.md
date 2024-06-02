@@ -107,7 +107,7 @@ ___
 `/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP[número de TP]_[Etapa correspondiente al ciclo de vida del sw]`
 
 
-#### Ítem de configuración |            Regla de nombrado            |         Formato de fecha              | Extensiones admitidas |                              Ubicación                                           |
+` Ítem de configuración |            Regla de nombrado            |         Formato de fecha              | Extensiones admitidas |                              Ubicación                                           |`
 `    Apuntes de clases        [subtema]_[tema]_[fecha].[extensión]     YYYYMMDD` Identifica año, mes y día.  `.txt                   /[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/apuntes`    
 `                                                                      YYYYMM` Identifica año y mes.
 `                                                                      YYYY` Identifica año.
