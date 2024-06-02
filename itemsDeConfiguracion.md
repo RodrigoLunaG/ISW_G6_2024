@@ -105,3 +105,7 @@ ___
 
 #### Ubicación
 `/[unidad][número de unidad]_[abreviatura del nombre de la unidad]/[tema]/entregable/TP[número de TP]_[Etapa correspondiente al ciclo de vida del sw]`
+
+#### Listado de Ítems de configuración
+
+`| Ítem de configuración | Regla de nombrado | Formato de fecha | Extensiones admitidas |  Ubicación |`
